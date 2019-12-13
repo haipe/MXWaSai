@@ -65,7 +65,9 @@ MiniBlinkWidget::MiniBlinkWidget(QWidget *parent) : QWidget(parent)
         web_view = wenView;
 
         //wkeMoveToCenter(wenView);
-        wkeLoadURL(wenView, "http://www.baidu.com");
+
+        QString path = "file:///" + QCoreApplication::applicationDirPath() + "/Web/index.html";
+        wkeLoadURL(wenView, path.toLocal8Bit());
     }
 }
 
