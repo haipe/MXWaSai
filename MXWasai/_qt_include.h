@@ -1,14 +1,21 @@
 ﻿#ifndef ROOTHEAD_H
 #define ROOTHEAD_H
 
+#include <QApplication>
+#include <QCoreApplication>
+
 #include <QDebug>
 #include <QLayout>
 #include <QWidget>
+#include <QWidget>
+#include <QLabel>
+#include <QPoint>
+#include <QPalette>
+#include <QColor>
+#include <QFont>
 #include <QResizeEvent>
-#include <QApplication>
 
 #include <QDir>
-#include <QCoreApplication>
 
 #include <QString>
 

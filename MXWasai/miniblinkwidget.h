@@ -2,7 +2,7 @@
 #define MINIBLINKWIDGET_H
 
 #include <QWidget>
-#include "roothead.h"
+#include "_qt_include.h"
 #include "wke.h"
 
 
@@ -11,6 +11,8 @@ class MiniBlinkWidget : public QWidget
     Q_OBJECT
 public:
     explicit MiniBlinkWidget(QWidget *parent = nullptr);
+
+    virtual ~MiniBlinkWidget() override;
 
     static void wkeInit();
     static void wkeFinal();

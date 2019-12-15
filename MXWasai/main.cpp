@@ -1,11 +1,12 @@
 ﻿#include "mainwindow.h"
 #include <QApplication>
 
-#include "roothead.h"
-#include "MiniBlinkWidget.h"
+#include "_qt_include.h"
+#include "miniblinkwidget.h"
 
+#include "desktopbook.h"
 
-void MessageBoxA(HWND w,const char* msg, const char* func, int)
+void MessageBoxA(HWND,const char* msg, const char* func, int)
 {
     qDebug() << "[msg] " << msg << " [ " << func << " ]." ;
 }
@@ -21,8 +22,15 @@ int main(int argc, char *argv[])
 
     QWidget* webFrame = w.getWebFrame();
 
-    MiniBlinkWidget* mini = new MiniBlinkWidget;
+    MiniBlinkWidget* mini = new MiniBlinkWidget(webFrame);
     webFrame->layout()->addWidget(mini);
+
+    DesktopBook db;
+    db.resize(600,400);
+    db.setWindowOpacity(1.0);
+    db.setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
+    db.setAttribute(Qt::WA_TranslucentBackground);
+    db.show();
 
     int ret = a.exec();
 

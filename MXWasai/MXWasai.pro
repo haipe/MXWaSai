@@ -16,19 +16,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+MX_GITHUB_PATH = ../../
 
-INCLUDEPATH += ../MiniBlink/
+
+INCLUDEPATH += $${MX_GITHUB_PATH}/MiniBlink/
 
 
 SOURCES += \
+    desktopbook.cpp \
     main.cpp \
     mainwindow.cpp \
     miniblinkwidget.cpp
 
 HEADERS += \
+    _qt_include.h \
+    desktopbook.h \
     mainwindow.h \
-    miniblinkwidget.h \
-    roothead.h
+    miniblinkwidget.h
 
 FORMS += \
     mainwindow.ui
