@@ -4,7 +4,6 @@
 #include "_qt_include.h"
 #include "miniblinkwidget.h"
 
-#include "desktopbook.h"
 
 void MessageBoxA(HWND,const char* msg, const char* func, int)
 {
@@ -24,13 +23,6 @@ int main(int argc, char *argv[])
 
     MiniBlinkWidget* mini = new MiniBlinkWidget(webFrame);
     webFrame->layout()->addWidget(mini);
-
-    DesktopBook db;
-    db.resize(600,400);
-    db.setWindowOpacity(1.0);
-    db.setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
-    db.setAttribute(Qt::WA_TranslucentBackground);
-    db.show();
 
     int ret = a.exec();
 

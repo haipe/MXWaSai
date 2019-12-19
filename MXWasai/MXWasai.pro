@@ -23,14 +23,12 @@ INCLUDEPATH += $${MX_GITHUB_PATH}/MiniBlink/
 
 
 SOURCES += \
-    desktopbook.cpp \
     main.cpp \
     mainwindow.cpp \
     miniblinkwidget.cpp
 
 HEADERS += \
     _qt_include.h \
-    desktopbook.h \
     mainwindow.h \
     miniblinkwidget.h
 

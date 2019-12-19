@@ -79,9 +79,9 @@ MiniBlinkWidget::MiniBlinkWidget(QWidget *parent) : QWidget(parent)
 
         //wkeMoveToCenter(wenView);
 
-        QString path = "file:///" + QCoreApplication::applicationDirPath() + "/Web/index.html";
-        wkeLoadURL(wenView, path.toLocal8Bit());
-        //wkeLoadURL(wenView, "https://www.baidu.com");
+        QString path = "file:///" + QCoreApplication::applicationDirPath() + "/docs/index.html";
+        //wkeLoadURL(wenView, path.toLocal8Bit());
+        wkeLoadURL(wenView, "www.wasai.life");
     }
 }
 
