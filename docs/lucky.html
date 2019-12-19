@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+  <title>抽签系统</title>
+  <style>
+    .container {
+      margin-top: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      width: auto;
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>共多少</h1>
+    <input type="text" style="border:1px;text-align:center;font-size:60px;background-color:#ff9999;" id="allCount"
+      value="19" />
+    <h1>抽多少</h1>
+    <input type="text" style="border:1px;text-align:center;font-size:60px;background-color:#ff9999;" id="needCount"
+      value="9" />
+    <br>
+    <br>
+    <font size="20">
+      目前已经抽出<span id="count"> 0 </span>个
+    </font>
+    <br>
+    <input type="button" style='font-size:30px' value="开始" onClick="timedCount();" />  
+    <input type="button" style='font-size:30px' value="停止" onClick="stopCount();Random();" />  
+    <input type="button" style='font-size:30px' value="清空" οnclick="Clear();" //> <br>
+    <br>
+    <span id="display"></span>
+    <br>
+  </div>
+  <script>
+    var allBoysCount = 0; //document.getElementById('allCount').value;  //所有用户个数
+    var needLucyCount = 0; //document.getElementById('needCount').value;//幸运儿 个数
+
+    var hasCount = 0; //抽了几个
+    var lucyBoys = []; //抽中的
+    var notLucyBoys = []; //剩余未抽中的所有人编码
+    var lucyFlags = []; //是否已经被抽中的标识
+
+    var loopDisplayNumber = 0; //当前滚动显示的用户
+    var loopTimer; //滚动定时器
+    var loopIndex = 0; //滚动索引
+
+    var currentLucyBoy; //当前选中的用户
+
+    window.onload = function () {
+      initData();
+    }
+
+    function initData() {
+      hasCount = 0; //抽了几个
+      lucyBoys = []; //抽中的
+      notLucyBoys = []; //剩余未抽中的所有人编码
+      lucyFlags = []; //是否已经被抽中的标识
+
+      loopDisplayNumber = 0; //当前滚动显示的用户
+      loopTimer; //滚动定时器
+      loopIndex = 0; //滚动索引
+
+      currentLucyBoy; //当前选中的用户
+
+      allBoysCount = document.getElementById('allCount').value;
+      needLucyCount = document.getElementById('needCount').value;
+
+      var cont = 0; //
+      while (true) {
+        var tmp = parseInt(Math.random() * allBoysCount + 1);
+
+        if (!lucyFlags[tmp]) {
+          lucyFlags[tmp] = 1;
+          notLucyBoys[cont++] = tmp;
+        }
+
+        if (cont === allBoysCount) {
+          break;
+        }
+      }
+    }
+
+    function timedCount() {
+      document.getElementById('allCount').value = loopDisplayNumber;
+      loopIndex = loopIndex + 1;
+      loopIndex = loopIndex % (notLucyBoys.length);
+      loopDisplayNumber = notLucyBoys[loopIndex];
+      loopTimer = setTimeout('timedCount()', 100);
+    }
+
+    function stopCount() {
+      clearTimeout(loopTimer);
+      currentLucyBoy = document.getElementById('allCount').value;
+    }
+
+    function Random() {
+      var draw = document.getElementById('display');
+
+      hasCount += 1;
+      lucyBoys.push(currentLucyBoy);
+      draw.innerHTML = draw.innerHTML + '<h1>第' + hasCount + '组抽中：' + currentLucyBoy + '<br/></h1>';
+      var tmp = [];
+      var cnt = 0;
+
+      tmp.length = 0;
+      for (var i = 0, len = notLucyBoys.length; i < len; i += 1) {
+        if (notLucyBoys[i] != currentLucyBoy) {
+          tmp[cnt] = notLucyBoys[i];
+          cnt = cnt + 1;
+        }
+      }
+
+      notLucyBoys.length = 0;
+      for (var i = 0; i < tmp.length; i += 1) {
+        notLucyBoys[i] = tmp[i];
+      }
+
+      document.getElementById('count').innerHTML = lucyBoys.length;
+      if (lucyBoys.length === 9) {
+        alert('已经抽完!');
+      }
+    }
+
+    function Clear() {
+      initData();
+      
+      clearTimeout(loopTimer);
+      document.getElementById('allCount').value = "0";
+      document.getElementById("count").innerHTML = "0";
+      document.getElementById("display").innerHTML = "";
+    }
+  </script>
+</body>
+
+</html>
