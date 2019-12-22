@@ -81,7 +81,7 @@ MiniBlinkWidget::MiniBlinkWidget(QWidget *parent) : QWidget(parent)
 
         QString path = "file:///" + QCoreApplication::applicationDirPath() + "/docs/index.html";
         //wkeLoadURL(wenView, path.toLocal8Bit());
-        wkeLoadURL(wenView, "www.wasai.life");
+        wkeLoadURL(wenView, "https://kyfw.12306.cn/otn/leftTicket/init?linktypeid=dc&fs=%E5%B9%BF%E5%B7%9E%E5%8D%97,IZQ&ts=%E4%B8%89%E6%B1%9F%E5%8D%97,SWZ&date=2019-12-22&flag=N,N,Y");
     }
 }
 

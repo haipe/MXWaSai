@@ -10,11 +10,15 @@ void MessageBoxA(HWND,const char* msg, const char* func, int)
     qDebug() << "[msg] " << msg << " [ " << func << " ]." ;
 }
 
+#include "gumbo.h"
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
     MiniBlinkWidget::wkeInit();
+
+    GumboOutput* out = gumbo_parse("<h>ddd</h>");
 
     MainWindow w;
     w.show();
