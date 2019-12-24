@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include "miniblinkwidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,13 +16,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    QWidget* getWebFrame();
 
 protected Q_SLOTS:
     void onLoadFinished(bool);
 
 protected:
-
+    mxtoolkit::MiniBlinkWidget* webView = nullptr;
 private:
     Ui::MainWindow *ui;
 };

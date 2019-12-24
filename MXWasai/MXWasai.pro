@@ -21,17 +21,19 @@ MX_GITHUB_PATH = ../../
 
 INCLUDEPATH += $${MX_GITHUB_PATH}/MiniBlink/
 
-INCLUDEPATH += $${MX_GITHUB_PATH}/MXToolkit/Gumbo/src
+INCLUDEPATH += $${MX_GITHUB_PATH}/MXToolkit/qt/
+
+INCLUDEPATH += $${MX_GITHUB_PATH}/MXToolkit/Gumbo/src/
 
 SOURCES += \
+    ../../MXToolkit/qt/miniblinkwidget.cpp \
     main.cpp \
-    mainwindow.cpp \
-    miniblinkwidget.cpp
+    mainwindow.cpp
 
 HEADERS += \
-    _qt_include.h \
-    mainwindow.h \
-    miniblinkwidget.h
+    ../../MXToolkit/qt/_mx_qt_include.h \
+    ../../MXToolkit/qt/miniblinkwidget.h \
+    mainwindow.h
 
 FORMS += \
     mainwindow.ui
