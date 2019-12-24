@@ -10,13 +10,16 @@ MainWindow::MainWindow(QWidget *parent)
 
     webView = new mxtoolkit::MiniBlinkWidget(this,"www.wasai.life");
     ui->centralwidget->layout()->addWidget(webView);
+    webView->hide();
 
     ui->centralwidget->setStyleSheet("background-color: #494A5F;");
 
     QString path = "file:///" + QCoreApplication::applicationDirPath() + "/Web/index.html";
 
-    statusBar()->showMessage(tr("Ready"));
+    statusBar()->showMessage(tr("Loading..."));
     statusBar()->setStyleSheet("background-color: #494A5F;");
+
+    connect(webView,SIGNAL(onLoadUrlCompleted()),this,SLOT(onLoadFinished()),Qt::QueuedConnection);
 }
 
 MainWindow::~MainWindow()
@@ -24,9 +27,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::onLoadFinished(bool ok)
+void MainWindow::onLoadFinished()
 {
-    //m_webEngineView->setVisible(true);
-    //m_webEngineView->reload();
+    webView->show();
+    statusBar()->showMessage(tr("Ready"));
 }
 
