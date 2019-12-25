@@ -16,7 +16,8 @@ public:
     ~MainWindow();
 
 protected Q_SLOTS:
-    void onLoadFinished();
+    void on_load_url_finished();
+    mxtoolkit::MiniBlinkWidget* on_create_web_view(wkeNavigationType navType, const QString& url, const wkeWindowFeatures* features);
 
 protected:
     mxtoolkit::MiniBlinkWidget* webView = nullptr;
