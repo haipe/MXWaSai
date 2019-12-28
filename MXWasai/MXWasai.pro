@@ -23,8 +23,6 @@ INCLUDEPATH += $${MX_GITHUB_PATH}/MiniBlink/
 
 INCLUDEPATH += $${MX_GITHUB_PATH}/MXToolkit/qt/
 
-INCLUDEPATH += $${MX_GITHUB_PATH}/MXToolkit/Gumbo/src/
-
 SOURCES += \
     ../../MXToolkit/qt/miniblinkwidget.cpp \
     main.cpp \
@@ -38,19 +36,16 @@ HEADERS += \
 FORMS += \
     mainwindow.ui
 
+RC_ICONS = logo.ico
+
+VERSION = 1.0.0.0
+QMAKE_TARGET_PRODUCT = MXWasai
+QMAKE_TARGET_COMPANY = www.wasai.life
+QMAKE_TARGET_DESCRIPTION = MXWasai
+QMAKE_TARGET_COPYRIGHT = www.wasai.life
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../MXToolkit/gumbo/qt/release/ -lgumbo
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../MXToolkit/gumbo/qt/debug/ -lgumbo
-
-win32:CONFIG(release, debug|release):DEPENDPATH += $$PWD/../../MXToolkit/gumbo/qt/release
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../MXToolkit/gumbo/qt/debug
-
-win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../../MXToolkit/gumbo/qt/release/libgumbo.a
-else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../../MXToolkit/gumbo/qt/debug/libgumbo.a
-else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../../MXToolkit/gumbo/qt/release/gumbo.lib
-else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../../MXToolkit/gumbo/qt/debug/gumbo.lib

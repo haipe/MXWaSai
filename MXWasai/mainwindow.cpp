@@ -8,8 +8,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    //webView = new mxtoolkit::MiniBlinkWidget(this,"www.wasai.life");
-    webView = new mxtoolkit::MiniBlinkWidget(this,"www.baidu.com");
+    setWindowTitle(QStringLiteral("mx哇塞"));
+
+    webView = new mxtoolkit::MiniBlinkWidget(this,"www.wasai.life");
     ui->centralwidget->layout()->addWidget(webView);
     webView->hide();
 
