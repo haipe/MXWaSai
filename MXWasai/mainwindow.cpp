@@ -12,11 +12,12 @@ MainWindow::MainWindow(QWidget *parent)
 
 #ifdef QT_NO_DEBUG
     QString path = "file:///" + QCoreApplication::applicationDirPath() + "/docs/index.html";
+    //QString path = "www.wasai.life";
 #else
     QString path = "file:///C:\\Users\\mx\\Desktop\\GitHub\\MXWaSai\\docs\\index.html";
 #endif
 
-    webView = new mxtoolkit::MiniBlinkWidget(this,path.toStdString().c_str());//"www.wasai.life"
+    webView = new mxtoolkit::MiniBlinkWidget(this,path.toStdString().c_str());//""
     ui->centralwidget->layout()->addWidget(webView);
     webView->hide();
 
