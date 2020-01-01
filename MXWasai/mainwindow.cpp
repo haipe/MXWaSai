@@ -11,8 +11,8 @@ MainWindow::MainWindow(QWidget *parent)
     setWindowTitle(QStringLiteral("mx哇塞"));
 
 #ifdef QT_NO_DEBUG
-    QString path = "file:///" + QCoreApplication::applicationDirPath() + "/docs/index.html";
-    //QString path = "www.wasai.life";
+    //QString path = "file:///" + QCoreApplication::applicationDirPath() + "/docs/index.html";
+    QString path = "www.wasai.life";
 #else
     QString path = "file:///C:\\Users\\mx\\Desktop\\GitHub\\MXWaSai\\docs\\index.html";
 #endif
