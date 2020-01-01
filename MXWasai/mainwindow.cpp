@@ -10,13 +10,17 @@ MainWindow::MainWindow(QWidget *parent)
 
     setWindowTitle(QStringLiteral("mx哇塞"));
 
-    webView = new mxtoolkit::MiniBlinkWidget(this,"www.wasai.life");
+#ifdef QT_NO_DEBUG
+    QString path = "file:///" + QCoreApplication::applicationDirPath() + "/docs/index.html";
+#else
+    QString path = "file:///C:\\Users\\mx\\Desktop\\GitHub\\MXWaSai\\docs\\index.html";
+#endif
+
+    webView = new mxtoolkit::MiniBlinkWidget(this,path.toStdString().c_str());//"www.wasai.life"
     ui->centralwidget->layout()->addWidget(webView);
     webView->hide();
 
     ui->centralwidget->setStyleSheet("background-color: #494A5F;");
-
-    QString path = "file:///" + QCoreApplication::applicationDirPath() + "/Web/index.html";
 
     statusBar()->showMessage(tr("Loading..."));
     statusBar()->setStyleSheet("background-color: #494A5F;");

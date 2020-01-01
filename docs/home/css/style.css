@@ -2,6 +2,14 @@
 
 body{
     font-family: Arial, "Microsoft YaHei UI Light";
+        
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+    not supported by any browser */
 }
 
 /*一、24格处理*/
@@ -31,7 +39,7 @@ body{
     position: absolute;
     left: 0;
     top: 0;
-    background-color: #fff;
+    /*background-color: #fff;*/
     width: 121px;
     height: 108px;
     text-align: center;
@@ -78,6 +86,17 @@ li img{
     background: url("../img/refresh-white.png");
 }
 
+.maskName{
+    position: absolute;
+    bottom: 0;
+    width: 121px;
+    text-align: center;
+    font-size: small;
+    /*
+    background-color: rgba(0, 0, 0, .7);
+    opacity: 0;
+    */
+}
 
 /*四、处理浮层*/
 .mask{
