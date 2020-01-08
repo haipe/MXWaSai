@@ -27,7 +27,22 @@
 			        <div class="mask">
 			            <img src="home/img/heart.png" alt="">
 			            <p>点赞 323.4万</p>
-			            <a href="javascript:">打开</a>
+			            <a href="javascript:" onclick=onClicnButton("MXFund")>打开</a>
+			        </div>
+			    </li>
+				<li>
+			        <div class="img-3d">
+			            <div class="img-front">
+			                <img src="home/img/mxdesktopbook.png" alt="">
+			            </div>
+			        </div>
+					<div class="maskName">
+						<span>MX正能量</span>
+					</div>
+			        <div class="mask">
+			            <img src="home/img/heart.png" alt="">
+			            <p>点赞 323.4万</p>
+			            <a href="javascript:" onclick=onClicnButton("MXDesktopBook")>打开</a>
 			        </div>
 			    </li>
 			    <li id="btnRefresh">
@@ -69,6 +84,15 @@
 			    clickTimes++;
 			}
 		}
+
+		function onClicnButton(btnName){
+			onJsCall(btnName);
+		}
+
+		function onCppCall(msg){
+			alert(msg);
+		}
+		
 	</script>
 </body>
 </html>

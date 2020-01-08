@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     //QString path = "file:///" + QCoreApplication::applicationDirPath() + "/docs/index.html";
     QString path = "www.wasai.life";
 #else
-    QString path = "file:///C:\\Users\\mx\\Desktop\\GitHub\\MXWaSai\\docs\\index.html";
+    QString path = "file:///" + QCoreApplication::applicationDirPath() + "/../../docs/index.html";
 #endif
 
     webView = new mxtoolkit::MiniBlinkWidget(this,path.toStdString().c_str());//""
