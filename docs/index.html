@@ -27,7 +27,7 @@
 			        <div class="mask">
 			            <img src="home/img/heart.png" alt="">
 			            <p>点赞 323.4万</p>
-			            <a href="javascript:" onclick=onClicnButton("MXFund")>打开</a>
+			            <a href="javascript:" onclick=onClickApp(0)>打开</a>
 			        </div>
 			    </li>
 				<li>
@@ -42,7 +42,7 @@
 			        <div class="mask">
 			            <img src="home/img/heart.png" alt="">
 			            <p>点赞 323.4万</p>
-			            <a href="javascript:" onclick=onClicnButton("MXDesktopBook")>打开</a>
+			            <a href="javascript:" onclick=onClickApp(1)>打开</a>
 			        </div>
 			    </li>
 			    <li id="btnRefresh">
@@ -54,6 +54,10 @@
 	</div>
 	
 	<script type="text/javascript">
+		var btnDataCount = 0;
+		var btnDatas;
+		var isInitFrame = false;
+
 		window.onload = function () {
 			var clickTimes = 1;
 
@@ -65,7 +69,7 @@
 
 			var img3DList = document.querySelectorAll(".img-3d");
 			var len = img3DList.length;
-
+			
 			btnRefresh.onclick = function () {
 			    iconRefresh.style.transition = ".3s linear";
 			    iconRefresh.style.transform = "rotate("+360*clickTimes+"deg)";
@@ -83,15 +87,28 @@
 
 			    clickTimes++;
 			}
+
+			btnDataCount = len
+			btnDatas = new Array(len)				
+			btnDatas[0] = "{\"dsadsa\"}"
+			btnDatas[1] = "John"
 		}
 
-		function onClicnButton(btnName){
-			onJsCall(btnName);
+		function initMXFrame(){
+
+			isInitFrame = true;						
 		}
 
-		function onCppCall(msg){
-			alert(msg);
+		function onClickApp(btnIndex){
+			if(!isInitFrame)
+				return;
+
+			if(btnDataCount <= btnIndex)
+				return;
+
+			onOpenApp(btnDatas[btnIndex]);
 		}
+
 		
 	</script>
 </body>

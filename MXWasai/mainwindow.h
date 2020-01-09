@@ -17,6 +17,8 @@ public:
 
 protected Q_SLOTS:
     void on_load_url_finished();
+    void on_js_function(const QString& jsFunction, const QString& param);
+
     mxtoolkit::MiniBlinkWidget* on_create_web_view(wkeNavigationType navType, const QString& url, const wkeWindowFeatures* features);
 
 protected:

@@ -31,6 +31,8 @@ MainWindow::MainWindow(QWidget *parent)
             SIGNAL(onCreateWebView(wkeNavigationType, const QString&, const wkeWindowFeatures *)),
             this,
             SLOT(on_create_web_view(wkeNavigationType, const QString&, const wkeWindowFeatures *)));
+
+    connect(webView,SIGNAL(onHookJSFunction(const QString&, const QString&)),this,SLOT(on_js_function(const QString&, const QString&)));
 }
 
 MainWindow::~MainWindow()
@@ -41,7 +43,19 @@ MainWindow::~MainWindow()
 void MainWindow::on_load_url_finished()
 {
     webView->show();
+    webView->runJavaScript("initMXFrame()");
+
+    webView->addHookJSFunction("onOpenApp");
+
     statusBar()->showMessage(tr("Ready"));
+}
+
+void MainWindow::on_js_function(const QString &jsFunction, const QString &param)
+{
+    if(jsFunction == "onOpenApp")
+    {
+        qDebug() << "dasdasdsads" << param;
+    }
 }
 
 mxtoolkit::MiniBlinkWidget* MainWindow::on_create_web_view(
