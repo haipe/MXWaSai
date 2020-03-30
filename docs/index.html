@@ -119,10 +119,12 @@
 				return;
 			if(isMacOrIos()){
 			
-				alert("ios/mac")
+				alert("ios/mac 111")
 				window.webkit.messageHandlers.onOpenApp.postMessage(btnDatas[btnIndex])
 			}else{
 			
+				alert("ios/mac 222")
+				window.webkit.messageHandlers.onOpenApp.postMessage(btnDatas[btnIndex])
 				onOpenApp(btnDatas[btnIndex]);
 			}
 		}
