@@ -112,8 +112,7 @@
 		}
 
 		function onClickApp(btnIndex){
-			if(!isInitFrame)
-				return;
+			
 
 			if(btnDataCount <= btnIndex)
 				return;
@@ -124,8 +123,7 @@
 			}else{
 			
 				alert("ios/mac 222")
-				window.webkit.messageHandlers.onOpenApp.postMessage(btnDatas[btnIndex])
-				//onOpenApp(btnDatas[btnIndex]);
+				onOpenApp(btnDatas[btnIndex]);
 			}
 		}
 
