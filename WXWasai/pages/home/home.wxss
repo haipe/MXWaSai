@@ -1,0 +1,14 @@
+/* pages/home/home.wxss */
+
+.joke-container {
+  /*display: flex;
+  flex-direction: column;*/
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.joke-info {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}

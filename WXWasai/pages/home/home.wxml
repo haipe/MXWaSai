@@ -1,0 +1,9 @@
+<!--pages/home/home.wxml-->
+<view class="container">
+  <view class="joke-contianer">
+    <text class="joke-info">{{joke_detail}}</text>
+  </view>
+  <view style="margin-top:100px;">
+    <button bindtap="onNew"> 再来一个 </button>
+  </view>
+</view>
